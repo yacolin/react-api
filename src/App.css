@@ -1,5 +1,26 @@
 .App {
+  display: flex;
   text-align: center;
+  height: 100%;
+}
+
+.sidebar {
+  width: 20%;
+  height: 100%;
+  border-right: 1px solid;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.sidebar ul li {
+  line-height: 36px;
+}
+
+.content {
+  padding-left: 20px;
 }
 
 .App-logo {

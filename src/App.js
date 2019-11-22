@@ -2,14 +2,13 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-import CreateRef from './components/CreatRef';
-import RefCallback from './components/RefCallback';
-import RefChildren from './components/RefChildren';
-import RefString from './components/RefString';
-import ForwardRef from './components/FowardRef';
-import FormValidation from './components/FormValidation';
-import ErrorDemo from './components/ErrorBoundary';
-import RadioGroup, { Radio } from './components/RadioGroup';
+import {
+  HashRouter,
+  Link,
+} from 'react-router-dom'
+
+import routes from './Router';
+import RouterConfig from './RouterConfig';
 
 function App() {
   return (
@@ -28,21 +27,44 @@ function App() {
           Learn React
         </a>
       </header> */}
+      
+      <HashRouter>
+        <div className="sidebar">
+          <ul>
+            <li>
+              <Link to="/greeting?type=class">Greeting</Link>
+            </li>
+            <li>
+              <Link to="/greeting?type=hooks">GreetingH</Link>
+            </li>
+            <li>
+              <Link to="/ref?type=class">ref</Link>
+            </li>
+            <li>
+              <Link to="/ref?type=hooks">refH</Link>
+            </li>
+            <li>
+              <Link to="/forwardRef?type=class">forwardRef</Link>
+            </li>
+            <li>
+              <Link to="/forwardRef?type=hooks">forwardRefH</Link>
+            </li>
+            <li>
+              <Link to="/context?type=class">context</Link>
+            </li>
+            <li>
+              <Link to="/context?type=hooks">contextH</Link>
+            </li>
+            <li>
+              <Link to="/simple-todo">todo</Link>
+            </li>
+          </ul>
+        </div>
 
-      {/* <CreateRef /> */}
-      {/* <RefCallback /> */}
-      {/* <RefChildren /> */}
-      {/* <RefString /> */}
-      {/* <ForwardRef /> */}
-
-      {/* <FormValidation /> */}
-      {/* <ErrorDemo /> */}
-
-      <RadioGroup name="g2">
-        <Radio value="first" />
-        <Radio value="second" />
-        <Radio value="third" />
-      </RadioGroup>
+        <div className="content">
+          {RouterConfig(routes)}
+        </div>
+      </HashRouter>
     </div>
   );
 }
