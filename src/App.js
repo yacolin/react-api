@@ -4,22 +4,11 @@ import './App.css';
 
 import {
   HashRouter,
-  Switch,
-  Route,
   Link,
 } from 'react-router-dom'
 
-
-import Greeting from './components/class/Greeting';
-import GreetingH from './components/hooks/GreetingH';
-import Ref from './components/class/Ref';
-import RefH from './components/hooks/RefH';
-
-import ForwardRef from './components/ForwardRef';
-import ForwardRefH from './components/hooks/ForwardRefH';
-
-import Context from './components/class/Context';
-import ContextH from './components/hooks/ContextH';
+import routes from './Router';
+import RouterConfig from './RouterConfig';
 
 function App() {
   return (
@@ -43,49 +32,37 @@ function App() {
         <div className="sidebar">
           <ul>
             <li>
-              <Link to="/greeting/class">Greeting</Link>
+              <Link to="/greeting?type=class">Greeting</Link>
             </li>
             <li>
-              <Link to="/greeting/hooks">GreetingH</Link>
+              <Link to="/greeting?type=hooks">GreetingH</Link>
             </li>
             <li>
-              <Link to="/ref/class">ref</Link>
+              <Link to="/ref?type=class">ref</Link>
             </li>
             <li>
-              <Link to="/ref/hooks">refH</Link>
+              <Link to="/ref?type=hooks">refH</Link>
             </li>
             <li>
-              <Link to="/forwardRef/class">forwardRef</Link>
+              <Link to="/forwardRef?type=class">forwardRef</Link>
             </li>
             <li>
-              <Link to="/forwardRef/hooks">forwardRefH</Link>
+              <Link to="/forwardRef?type=hooks">forwardRefH</Link>
             </li>
             <li>
-              <Link to="/context/class">context</Link>
+              <Link to="/context?type=class">context</Link>
             </li>
             <li>
-              <Link to="/context/hooks">contextH</Link>
+              <Link to="/context?type=hooks">contextH</Link>
+            </li>
+            <li>
+              <Link to="/simple-todo">todo</Link>
             </li>
           </ul>
         </div>
 
         <div className="content">
-          <Switch>
-            <Route path="/greeting/class" children={<Greeting />} />
-            <Route path="/greeting/hooks" children={<GreetingH />} />
-            <Route path="/ref/class" children={<Ref />} />
-            <Route path="/ref/hooks" children={<RefH />} />
-            <Route path="/forwardRef/class">
-              <ForwardRef />
-            </Route>
-            <Route path="/forwardRef/hooks">
-              <ForwardRefH />
-            </Route>
-            <Route path="/context/class" >
-              <Context />  
-            </Route>
-            <Route path="/context/hooks" children={ContextH}/>
-          </Switch>
+          {RouterConfig(routes)}
         </div>
       </HashRouter>
     </div>

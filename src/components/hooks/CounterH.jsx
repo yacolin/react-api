@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useReducer } from 'react';
 
 
-export function Counter() {
+export function CounterH() {
     const [count, setCount] = useState(0);
 
     // Similar to componentDidMount and componentDidUpdate

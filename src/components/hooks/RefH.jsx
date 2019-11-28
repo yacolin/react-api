@@ -16,7 +16,7 @@ export default function RefH() {
 
     return (
         <div>
-            <h1>React Ref - createRef</h1>
+            <h1>React Ref - createRef Hooks</h1>
             <h3>Value: {change}</h3>
             <h3>Change: {value}</h3>
             <form onSubmit={handleSubmit}>

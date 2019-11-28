@@ -5,7 +5,15 @@ export default function GreetingH() {
     const secName = useFormInput('bob');
     const width = useWindowWith();
 
+    useEffect(() => {
+        console.log('render');
 
+        return () => {
+            console.log('unmount')
+        }
+    }, [name.value, secName.value])
+
+    
 
     return (
         <>
@@ -42,7 +50,7 @@ function useWindowWith() {
         const handleResize = () => setWidth(window.innerWidth);
         window.addEventListener('resize', handleResize);
         return () => {
-            window.removeEventListener('resize', handleResize)
+            window.removeEventListener('resize', handleResize);
         };
     })
 
